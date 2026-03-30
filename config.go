@@ -16,11 +16,12 @@ type Config struct {
 	AllowedHosts []string `env:"PROXY_ALLOWED_HOSTS" envSeparator:","`
 
 	// CORS
-	AllowOrigins     string `env:"CORS_ALLOW_ORIGINS"  envDefault:"*"`
-	AllowMethods     string `env:"CORS_ALLOW_METHODS"  envDefault:"GET,POST,PUT,PATCH,DELETE,OPTIONS"`
-	AllowHeaders     string `env:"CORS_ALLOW_HEADERS"  envDefault:"Accept,Authorization,Content-Type,X-Requested-With"`
-	MaxAge           string `env:"CORS_MAX_AGE"        envDefault:"86400"`
-	AllowCredentials bool   `env:"CORS_ALLOW_CREDENTIALS"`
+	AllowOrigins           string `env:"CORS_ALLOW_ORIGINS"  envDefault:"*"`
+	AllowMethods           string `env:"CORS_ALLOW_METHODS"  envDefault:"GET,POST,PUT,PATCH,DELETE,OPTIONS"`
+	AllowHeaders           string `env:"CORS_ALLOW_HEADERS"  envDefault:"Accept,Authorization,Content-Type,X-Requested-With"`
+	MaxAge                 string `env:"CORS_MAX_AGE"        envDefault:"86400"`
+	AllowCredentials       bool   `env:"CORS_ALLOW_CREDENTIALS"`
+	HideAllowOriginsHeader bool   `env:"CORS_HIDE_ALLOW_ORIGINS_HEADER"  envDefault:"false"`
 
 	// Logging
 	LogFormat string `env:"LOG_FORMAT" envDefault:"json"`

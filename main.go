@@ -135,9 +135,13 @@ func setCORSHeaders(w http.ResponseWriter, r *http.Request, cfg *Config) {
 	origin := r.Header.Get("Origin")
 
 	if cfg.AllowOrigins == "*" {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
+		if !cfg.HideAllowOriginsHeader {
+			w.Header().Set("Access-Control-Allow-Origin", "*")
+		}
 	} else if origin != "" && isAllowedOrigin(origin, cfg.AllowOrigins) {
-		w.Header().Set("Access-Control-Allow-Origin", origin)
+		if !cfg.HideAllowOriginsHeader {
+			w.Header().Set("Access-Control-Allow-Origin", origin)
+		}
 		w.Header().Set("Vary", "Origin")
 	}
 
