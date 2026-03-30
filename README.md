@@ -34,15 +34,5 @@ PROXY_ALLOWED_HOSTS=ipinfo.io,api.example.com go run .
 | `LOG_FORMAT`              | `json`                                               | `json` or `text`                                                  |
 | `LOG_LEVEL`               | `info`                                               | `debug`, `info`, `warn`, `error`                                  |
 
-## Docker
-
-```bash
-docker build -t corsproxy .
-docker run \
-  -e PROXY_ALLOWED_HOSTS=ipinfo.io \
-  -e CORS_ALLOW_ORIGINS=https://app.example.com \
-  -p 8080:8080 corsproxy
-```
-
 > **Warning:** leaving `PROXY_ALLOWED_HOSTS` empty makes this an open proxy.  
 > Always set it in production.
