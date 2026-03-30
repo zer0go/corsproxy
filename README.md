@@ -6,18 +6,18 @@ Config via env using [`caarlos0/env`](https://github.com/caarlos0/env). Logging 
 ## Request format
 
 ```
-https://proxy.com/{upstream-url}
+https://corsproxy-prod.up.railway.app/{upstream-url}
 
 # Examples:
-https://proxy.com/https://ipinfo.io/json
-https://proxy.com/https://api.example.com/v1/users?page=2
+https://corsproxy-prod.up.railway.app/https://ip-api.com/json
+https://corsproxy-prod.up.railway.app/https://api.example.com/v1/users?page=2
 ```
 
 ## Usage
 
 ```bash
 go get
-PROXY_ALLOWED_HOSTS=ipinfo.io,api.example.com go run .
+PROXY_ALLOWED_HOSTS=ip-api.com,api.example.com go run .
 ```
 
 ## Environment variables
