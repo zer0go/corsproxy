@@ -107,6 +107,13 @@ func corsProxyHandler(cfg *Config, logger *slog.Logger) http.Handler {
 			// Rewrite Location headers in redirect responses so the client
 			// follows them through the proxy, not directly to the upstream.
 			ModifyResponse: func(resp *http.Response) error {
+				resp.Header.Del("Access-Control-Allow-Origin")
+				resp.Header.Del("Access-Control-Allow-Methods")
+				resp.Header.Del("Access-Control-Allow-Headers")
+				resp.Header.Del("Access-Control-Allow-Credentials")
+				resp.Header.Del("Access-Control-Expose-Headers")
+				resp.Header.Del("Access-Control-Max-Age")
+
 				if loc := resp.Header.Get("Location"); loc != "" {
 					resp.Header.Set("Location", proxyBase+"/"+loc)
 				}
