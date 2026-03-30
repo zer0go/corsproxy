@@ -9,7 +9,7 @@ Config via env using [`caarlos0/env`](https://github.com/caarlos0/env). Logging 
 https://corsproxy-prod.up.railway.app/{upstream-url}
 
 # Examples:
-https://corsproxy-prod.up.railway.app/https://ip-api.com/json
+https://corsproxy-prod.up.railway.app/http://ip-api.com/json
 https://corsproxy-prod.up.railway.app/https://api.example.com/v1/users?page=2
 ```
 
