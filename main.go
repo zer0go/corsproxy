@@ -115,7 +115,10 @@ func corsProxyHandler(cfg *Config, logger *slog.Logger) http.Handler {
 				resp.Header.Del("Access-Control-Max-Age")
 
 				if loc := resp.Header.Get("Location"); loc != "" {
-					resp.Header.Set("Location", proxyBase+"/"+loc)
+					if locURL, err := url.Parse(loc); err == nil {
+						resolved := target.ResolveReference(locURL)
+						resp.Header.Set("Location", proxyBase+"/"+resolved.String())
+					}
 				}
 				return nil
 			},
